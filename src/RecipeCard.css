@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Protest+Revolution&display=swap");
+
+.recipe-card {
+  width: 25vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  background: var(--secondary);
+  margin: 50px 10px;
+  border: 5px solid var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative; /* For positioning the overlay */
+  box-shadow: 14px 5px 31px 0px rgba(255, 255, 255, 0.26);
+  -webkit-box-shadow: 14px 5px 31px 0px rgba(255, 255, 255, 0.26);
+  -moz-box-shadow: 14px 5px 31px 0px rgba(255, 255, 255, 0.26);
+}
+
+.recipe-img-container {
+  height: 65%;
+  width: 100%;
+}
+
+.recipe-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0% 100% 0% 100% / 0% 0% 100% 8%;
+}
+
+.infobox {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  text-transform: capitalize;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.42s ease-in-out;
+}
+
+.infobox .name {
+  color: var(--primary);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.308);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.42s ease-in-out, visibility 0.42s ease-in-out;
+}
+
+.recipe-card:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.42s;
+}
+
+.overlay button:hover {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+/* Modal styles */
+.moreinfo-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 80%;
+  max-width: 1080px;
+  height: 80%;
+  background: var(--primary);
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  align-items: center;
+  justify-content: space-between;
+  border: 5px solid var(--white);
+  scrollbar-width: none;
+}
+
+.moreinfo-box.show {
+  display: flex;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.moreinfo-box .img-container {
+  height: 100%;
+  width: 45%;
+}
+
+.moreinfo-box .img-container img {
+  border-radius: 10px;
+}
+
+.moreinfo-box .main-info-container {
+  height: 100%;
+  width: 50%;
+  color: var(--white);
+}
+
+.ingredients {
+  list-style: none;
+}
+
+/* Overlay to dim the background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-btn {
+  position: fixed;
+  right: 3%;
+  top: 3%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50px;
+  color: maroon;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .recipe-card {
+    width: 40vw;
+    height: auto;
+  }
+
+  .recipe-img-container {
+    height: 60%;
+  }
+
+  .infobox {
+    height: 40%;
+  }
+
+  .moreinfo-box {
+    width: 90%;
+    height: 70%;
+  }
+
+  .moreinfo-box .img-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .moreinfo-box .main-info-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-card {
+    width: 80vw;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .recipe-img-container {
+    height: 50%;
+  }
+
+  .infobox {
+    height: 50%;
+  }
+
+  .moreinfo-box {
+    width: 70%;
+    height: 60%;
+    flex-direction: column;
+  }
+
+  .moreinfo-box .img-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .moreinfo-box .main-info-container {
+    width: 100%;
+  }
+}
