@@ -1,6 +1,6 @@
 {
   "name": "dishcover",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "homepage": "https://sephhsephh.github.io/DISHCover",
   "type": "module",
@@ -8,7 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=./",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
